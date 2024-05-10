@@ -25,15 +25,15 @@ public class RPGCharacter {
         this.history = history;
     }
 
-    public Class getClasss() {
+    public characterClass getClasss() {
         return classs;
     }
 
-    public void setClasss(Class aClass) {
-        this.classs = aClass;
+    public void setClasss(characterClass aCharacterClass) {
+        this.classs = aCharacterClass;
 
         for (Proficiency proficiency : this.proficiencies) {
-            for (Proficiency classProficiencies: aClass.getProficiencies()) {
+            for (Proficiency classProficiencies: aCharacterClass.getProficiencies()) {
                 if (classProficiencies.equals(proficiency)) {
                     classProficiencies.transfer(proficiency);
                 }
@@ -83,7 +83,7 @@ public class RPGCharacter {
 
     private String mission;
     private String history;
-    private Class classs;
+    private characterClass classs;
     private Race race;
     private Power power;
     private Tool tool;
