@@ -1,8 +1,8 @@
-public class Class {
+public class characterClass {
     private String name;
     private Proficiency[] proficiencies;
 
-    public Class(String name, Proficiency[] proficiencies) {
+    public characterClass(String name, Proficiency[] proficiencies) {
         this.name = name;
         this.proficiencies = proficiencies;
     }

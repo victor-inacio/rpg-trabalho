@@ -12,18 +12,18 @@ public class Main {
                 new Tool("Arco"),
         };
 
-        Class[] classes = new Class[] {
-                new Class("Atirador", new Proficiency[] {
+        characterClass[] characterClasses = new characterClass[] {
+                new characterClass("Atirador", new Proficiency[] {
                     new Proficiency(ProficiencyType.VIDA,2),
                     new Proficiency(ProficiencyType.FORCA,3),
                     new Proficiency(ProficiencyType.INTELIGENCIA,4),
                 }),
-                new Class("Guerreiro", new Proficiency[] {
+                new characterClass("Guerreiro", new Proficiency[] {
                         new Proficiency(ProficiencyType.VIDA,2),
                         new Proficiency(ProficiencyType.FORCA,3),
                         new Proficiency(ProficiencyType.INTELIGENCIA,4),
                 }),
-                new Class("Mago", new Proficiency[] {
+                new characterClass("Mago", new Proficiency[] {
                         new Proficiency(ProficiencyType.VIDA,2),
                         new Proficiency(ProficiencyType.FORCA,3),
                         new Proficiency(ProficiencyType.INTELIGENCIA,4),
@@ -44,5 +44,7 @@ public class Main {
                 new Proficiency(ProficiencyType.INTELIGENCIA,4),
         };
 
+        SheetCreator sheetCreator = new SheetCreator();
+        sheetCreator.init();
     }
 }
