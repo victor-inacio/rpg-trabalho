@@ -1,15 +1,6 @@
 import java.util.Objects;
 
 public class Proficiency {
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    private String name;
 
     public int getValue() {
         return value;
@@ -21,13 +12,27 @@ public class Proficiency {
 
     private int value;
 
-    public Proficiency(String name) {
-        this.name = name;
+    public ProficiencyType getType() {
+        return type;
+    }
+
+    public void setType(ProficiencyType type) {
+        this.type = type;
+    }
+
+    public String getTypeName() {
+        return type.toString();
+    }
+
+    private ProficiencyType type;
+
+    public Proficiency(ProficiencyType type) {
+        this.type = type;
         this.value = 0;
     }
 
-    public Proficiency(String name, int value) {
-        this.name = name;
+    public Proficiency(ProficiencyType type, int value) {
+        this.type = type;
         this.value = value;
     }
 
@@ -39,11 +44,6 @@ public class Proficiency {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Proficiency that)) return false;
-        return Objects.equals(name, that.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(name);
+        return type == that.type;
     }
 }

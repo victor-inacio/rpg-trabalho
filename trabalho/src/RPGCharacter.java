@@ -1,5 +1,86 @@
 public class RPGCharacter {
     private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMission() {
+        return mission;
+    }
+
+    public void setMission(String mission) {
+        this.mission = mission;
+    }
+
+    public String getHistory() {
+        return history;
+    }
+
+    public void setHistory(String history) {
+        this.history = history;
+    }
+
+    public Class getClasss() {
+        return classs;
+    }
+
+    public void setClasss(Class aClass) {
+        this.classs = aClass;
+
+        for (Proficiency proficiency : this.proficiencies) {
+            for (Proficiency classProficiencies: aClass.getProficiencies()) {
+                if (classProficiencies.equals(proficiency)) {
+                    classProficiencies.transfer(proficiency);
+                }
+            }
+        }
+    }
+
+    public Race getRace() {
+        return race;
+    }
+
+    public void setRace(Race race) {
+        this.race = race;
+
+        for (Proficiency thisProficiency : this.proficiencies) {
+            for (Proficiency raceProficiency: race.getProficiencies()) {
+                if (raceProficiency.equals(thisProficiency)) {
+                    raceProficiency.transfer(thisProficiency);
+                }
+            }
+        }
+    }
+
+    public Power getPower() {
+        return power;
+    }
+
+    public void setPower(Power power) {
+        this.power = power;
+    }
+
+    public Tool getTool() {
+        return tool;
+    }
+
+    public void setTool(Tool tool) {
+        this.tool = tool;
+    }
+
+    public Proficiency[] getProficiencies() {
+        return proficiencies;
+    }
+
+    public void setProficiencies(Proficiency[] proficiencies) {
+        this.proficiencies = proficiencies;
+    }
+
     private String mission;
     private String history;
     private Class classs;
@@ -8,41 +89,8 @@ public class RPGCharacter {
     private Tool tool;
 
     private Proficiency[] proficiencies = new Proficiency[] {
-        new Proficiency("Força"),
-        new Proficiency("Vida"),
-        new Proficiency("Inteligência"),
+        new Proficiency(ProficiencyType.FORCA),
+        new Proficiency(ProficiencyType.INTELIGENCIA),
+        new Proficiency(ProficiencyType.VIDA),
     };
-
-
-    public RPGCharacter(String name, String mission, String history, Class aClass, Race race, Power power, Tool tool, Proficiency[] proficiencies) {
-        this.name = name;
-        this.mission = mission;
-        this.history = history;
-        this.classs = aClass;
-        this.race = race;
-        this.power = power;
-        this.tool = tool;
-
-        for (Proficiency proficiency: proficiencies) {
-            for (Proficiency proficiency2: this.proficiencies) {
-                if (proficiency.equals(proficiency2)) {
-                    proficiency.transfer(proficiency2);
-                }
-            }
-        }
-
-        for (Proficiency proficiency : this.proficiencies) {
-            for (Proficiency raceProficiency: race.getProficiencies()) {
-                if (raceProficiency.equals(proficiency)) {
-                    raceProficiency.transfer(proficiency);
-                }
-            }
-
-            for (Proficiency classProficiencies: aClass.getProficiencies()) {
-                if (classProficiencies.equals(proficiency)) {
-                    classProficiencies.transfer(proficiency);
-                }
-            }
-        }
-    }
 }
