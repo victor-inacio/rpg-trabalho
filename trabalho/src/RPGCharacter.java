@@ -2,15 +2,15 @@ public class RPGCharacter {
     private String name;
     private String mission;
     private String history;
-    private characterClass classs;
+    private CharacterClass characterClass;
     private Race race;
     private Power power;
     private Tool tool;
 
     private Proficiency[] proficiencies = new Proficiency[] {
         new Proficiency(ProficiencyType.FORCA),
-        new Proficiency(ProficiencyType.INTELIGENCIA),
         new Proficiency(ProficiencyType.VIDA),
+        new Proficiency(ProficiencyType.INTELIGENCIA)
     };
 
     public String getName() {
@@ -37,12 +37,12 @@ public class RPGCharacter {
         this.history = history;
     }
 
-    public characterClass getClasss() {
-        return classs;
+    public String getCharacterClass() {
+        return characterClass.getName();
     }
 
-    public void setClasss(characterClass aCharacterClass) {
-        this.classs = aCharacterClass;
+    public void setCharacterClass(CharacterClass aCharacterClass) {
+        this.characterClass = aCharacterClass;
 
         for (Proficiency proficiency : this.proficiencies) {
             for (Proficiency classProficiencies: aCharacterClass.getProficiencies()) {
@@ -53,8 +53,8 @@ public class RPGCharacter {
         }
     }
 
-    public Race getRace() {
-        return race;
+    public String getRace() {
+        return race.getName();
     }
 
     public void setRace(Race race) {
@@ -69,16 +69,16 @@ public class RPGCharacter {
         }
     }
 
-    public Power getPower() {
-        return power;
+    public String getPower() {
+        return power.getName();
     }
 
     public void setPower(Power power) {
         this.power = power;
     }
 
-    public Tool getTool() {
-        return tool;
+    public String getTool() {
+        return tool.getName();
     }
 
     public void setTool(Tool tool) {

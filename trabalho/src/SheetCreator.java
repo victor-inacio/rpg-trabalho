@@ -87,7 +87,7 @@ public class SheetCreator {
                             new Proficiency(ProficiencyType.VIDA, 2),
                             new Proficiency(ProficiencyType.INTELIGENCIA,0)
                     };
-                    character.setClasss(new characterClass("Guerreiro", proficienciesWarrior));
+                    character.setCharacterClass(new CharacterClass("Guerreiro", proficienciesWarrior));
 
                     // Próximo passo
                     escolherEquipamento();
@@ -99,7 +99,7 @@ public class SheetCreator {
                             new Proficiency(ProficiencyType.VIDA, 1),
                             new Proficiency(ProficiencyType.INTELIGENCIA,3)
                     };
-                    character.setClasss(new characterClass("Mago", proficienciesWizard));
+                    character.setCharacterClass(new CharacterClass("Mago", proficienciesWizard));
 
                     // Próximo passo
                     escolherEquipamento();
@@ -111,7 +111,7 @@ public class SheetCreator {
                             new Proficiency(ProficiencyType.VIDA, 2),
                             new Proficiency(ProficiencyType.INTELIGENCIA,2)
                     };
-                    character.setClasss(new characterClass("Atirador", proficienciesADC));
+                    character.setCharacterClass(new CharacterClass("Atirador", proficienciesADC));
 
                     // Próximo passo
                     escolherEquipamento();
@@ -172,6 +172,8 @@ public class SheetCreator {
                     "\nEscolha um dos poderes acima (0 para cancelar): ");
             opcao = scanner.nextInt();
 
+            scanner.nextLine(); // Limpar buffer
+
             switch(opcao) {
                 case 0:
                     break;
@@ -180,21 +182,21 @@ public class SheetCreator {
                     character.setPower(new Power("Camuflagem"));
 
                     // Próximo passo
-                    escolherNome();
+                    opcao = escolherNome();
                     break;
                 case 2:
                     // Criar poder regeneração
                     character.setPower(new Power("Regeneração"));
 
                     // Próximo passo
-                    escolherNome();
+                    opcao = escolherNome();
                     break;
                 case 3:
                     // Criar poder proteção
                     character.setPower(new Power("Proteção"));
 
                     // Próximo passo
-                    escolherNome();
+                    opcao = escolherNome();
                     break;
                 default:
                     System.out.println("Opção inválida, tente novamente!");
@@ -202,42 +204,45 @@ public class SheetCreator {
         } while(opcao != 0);
     }
 
-    public void escolherNome() {
+    public int escolherNome() {
         System.out.println("Escolha um nome para seu personagem: ");
         character.setName(scanner.nextLine());
 
         // Próximo passo
-        escolherMissao();
+        return escolherMissao();
     }
 
-    public void escolherMissao() {
+    public int escolherMissao() {
         System.out.println("Informe a missão do seu personagem: ");
         character.setMission(scanner.nextLine());
 
         // Próximo passo
-
+        return escolherHistoria();
     }
 
-    public void escolherHistoria() {
+    public int escolherHistoria() {
         System.out.println("Informe a história do seu personagem: ");
         character.setHistory(scanner.nextLine());
 
         // Próximo passo
-
+        return exibir();
     }
 
-    public void exibir() {
+    public int exibir() {
         System.out.println("--- FICHA ---");
         System.out.println("Nome: " + character.getName());
         System.out.println("Raça: " + character.getRace());
-        System.out.println("Classe: " + character.getClass());
+        System.out.println("Classe: " + character.getCharacterClass());
+        System.out.println("Proficiências: " +
+                "Força - " + character.getProficiencies()[0].getValue() +
+                " Vida - " + character.getProficiencies()[1].getValue() +
+                " Inteligência - " + character.getProficiencies()[2].getValue());
         System.out.println("Equipamento: " + character.getTool());
         System.out.println("Poder: " + character.getPower());
-        System.out.println("História: " + character.getPower());
-        System.out.println("Missão: " + character.getPower());
+        System.out.println("História: " + character.getHistory());
+        System.out.println("Missão: " + character.getMission());
 
-
-        break;
+        return 0;
     }
 
 }
