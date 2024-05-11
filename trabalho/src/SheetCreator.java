@@ -227,11 +227,17 @@ public class SheetCreator {
     }
 
     public void exibir() {
-        System.out.println("Informe a história do seu personagem: ");
-        character.setHistory(scanner.nextLine());
+        System.out.println("--- FICHA ---");
+        System.out.println("Nome: " + character.getName());
+        System.out.println("Raça: " + character.getRace());
+        System.out.println("Classe: " + character.getClass());
+        System.out.println("Equipamento: " + character.getTool());
+        System.out.println("Poder: " + character.getPower());
+        System.out.println("História: " + character.getPower());
+        System.out.println("Missão: " + character.getPower());
 
-        // Próximo passo
 
+        break;
     }
 
 }

@@ -1,5 +1,17 @@
 public class RPGCharacter {
     private String name;
+    private String mission;
+    private String history;
+    private characterClass classs;
+    private Race race;
+    private Power power;
+    private Tool tool;
+
+    private Proficiency[] proficiencies = new Proficiency[] {
+        new Proficiency(ProficiencyType.FORCA),
+        new Proficiency(ProficiencyType.INTELIGENCIA),
+        new Proficiency(ProficiencyType.VIDA),
+    };
 
     public String getName() {
         return name;
@@ -80,17 +92,4 @@ public class RPGCharacter {
     public void setProficiencies(Proficiency[] proficiencies) {
         this.proficiencies = proficiencies;
     }
-
-    private String mission;
-    private String history;
-    private characterClass classs;
-    private Race race;
-    private Power power;
-    private Tool tool;
-
-    private Proficiency[] proficiencies = new Proficiency[] {
-        new Proficiency(ProficiencyType.FORCA),
-        new Proficiency(ProficiencyType.INTELIGENCIA),
-        new Proficiency(ProficiencyType.VIDA),
-    };
 }
