@@ -245,4 +245,8 @@ public class SheetCreator {
         return 0;
     }
 
+    public RPGCharacter getCharacter() {
+        return character;
+    }
+
 }
