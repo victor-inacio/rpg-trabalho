@@ -1,3 +1,5 @@
+// ALUNOS: GABRIEL EDUARDO BARBOSA DA SILVA (UC22101937) e VICTOR INACIO FERREIRA SOARES (UC22200065)
+
 import java.util.Random;
 import java.util.Scanner;
 
