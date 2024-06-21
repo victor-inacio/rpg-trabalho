@@ -61,7 +61,7 @@ public class Game {
 
     private void finalBattle() {
         System.out.println("Você escolheu o Caminho da Batalha. Prepare-se para lutar!");
-        int enemyLife = random.nextInt(10) + 1;
+        int enemyLife = random.nextInt(10) + 20;
         int characterPower = character.getProficiencies()[0].getValue(); // Usando a força como poder
 
         while (enemyLife > 0 && characterPower > 0) {
